@@ -1,0 +1,23 @@
+# Dependencies
+node_modules
+
+# Build
+build
+
+# Vite
+.vite
+
+# Editor
+.vscode
+
+# Logs
+logs
+
+# Environment
+.env
+
+# Dist
+/dist
+
+#FILES
+CV_ATS_IYYAN_ANUGRAH.pdf
