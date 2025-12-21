@@ -1,23 +1,28 @@
 # Dependencies
 node_modules
 
-# Build
-build
+# OS
+.DS_Store
+Thumbs.db
+*.local
 
-# Vite
+# Build
+dist
+/dist
+build
 .vite
 
 # Editor
 .vscode
-
-# Logs
-logs
+.idea
+*.suo
+*.ntvs*
+*.njsproj
 
 # Environment
 .env
+.env.local
+.env.*.local
 
-# Dist
-/dist
-
-#FILES
+# Files
 CV_ATS_IYYAN_ANUGRAH.pdf
