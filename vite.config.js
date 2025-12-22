@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: '/portofolio/', // Repository name for GitHub Pages
+  base: '/', // Use root for custom domain (anugrahiyyan.is-a.dev)
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
