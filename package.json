@@ -1,7 +1,7 @@
 {
-  "name": "iyyan-portfolio",
+  "name": "anugrahiyyan-portfolio",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -12,6 +12,6 @@
     "vite": "^6.0.0"
   },
   "dependencies": {
-    "framer-motion": "^10.0.0"
+    "tsparticles-slim": "^2.12.0"
   }
 }

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Terminal Window Background -->
+  <rect x="4" y="8" width="56" height="48" rx="4" fill="#0a0a0f" stroke="#00ff41" stroke-width="2"/>
+  
+  <!-- Terminal Header -->
+  <rect x="4" y="8" width="56" height="12" rx="4" fill="#1a1a22"/>
+  <circle cx="12" cy="14" r="3" fill="#ff5f56"/>
+  <circle cx="22" cy="14" r="3" fill="#ffbd2e"/>
+  <circle cx="32" cy="14" r="3" fill="#27c93f"/>
+  
+  <!-- Terminal Prompt -->
+  <text x="10" y="36" font-family="monospace" font-size="10" fill="#00ff41">$_</text>
+  
+  <!-- Blinking Cursor Effect (static for favicon) -->
+  <rect x="28" y="28" width="8" height="12" fill="#00ff41" opacity="0.8"/>
+  
+  <!-- Code Lines -->
+  <rect x="10" y="44" width="24" height="4" rx="1" fill="#00d4ff" opacity="0.6"/>
+  <rect x="10" y="50" width="36" height="4" rx="1" fill="#00ff41" opacity="0.4"/>
+</svg>

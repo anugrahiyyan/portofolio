@@ -1,7 +1,8 @@
 import { defineConfig } from 'vite';
 
-export default defineConfig({
-  base: '/', // Use root for custom domain (anugrahiyyan.is-a.dev)
+export default defineConfig(({ command }) => ({
+  // Use '/' for production (GitHub Pages), './' for local dev
+  base: command === 'build' ? '/' : './',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
@@ -10,4 +11,4 @@ export default defineConfig({
     port: 3000,
     open: false,
   },
-});
+}));

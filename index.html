@@ -4,83 +4,193 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Personal Portfolio - Iyyan Anugrah</title>
+  <title>Portfolio Iyyan Anugrah</title>
   <meta name="description"
-    content="Portfolio of Iyyan Anugrah, an IT Support Engineer specializing in Linux, Cloudflare, and Systems Infrastructure." />
-  <!-- Icons -->
-  <link rel="icon" type="image/svg+xml" href="./vite.svg" />
+    content="Portfolio of Iyyan Anugrah - IT Support Engineer specializing in Linux, Cloudflare, and Systems Infrastructure." />
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
 </head>
 
 <body>
-  <!-- Background Canvas -->
-  <canvas id="bg-canvas"></canvas>
+  <!-- Particles Background -->
+  <div id="tsparticles"></div>
 
-  <!-- Navigation (Floating) -->
-  <nav class="navbar">
-    <ul class="nav-links">
-      <li><a href="#hero">Start</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#experience">Exp</a></li>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+  <!-- Intro Overlay (Monitor Boot Screen) -->
+  <div id="intro-overlay" class="intro-overlay">
+    <div class="intro-screen">
+      <!-- CRT Monitor Frame -->
+      <div class="monitor-frame">
+        <div class="monitor-screen">
+          <div class="scanlines"></div>
+          <div class="intro-content">
+            <p class="intro-label">PERMISSION ACCESS VIEW</p>
+            <p class="intro-text">
+              YOU WILL SEE THE PORTFOLIO OF<br>
+              <span id="scramble-name" class="intro-name">IYYAN ANUGRAH</span>
+            </p>
+            <button id="enter-btn" class="intro-btn">
+              <span class="intro-btn__text">[ENTER]</span>
+              <span class="intro-btn__hint">Press Enter or Click</span>
+            </button>
+          </div>
+        </div>
+        <div class="monitor-stand"></div>
+      </div>
+    </div>
 
-  <main>
+    <!-- Boot Sequence (shown after click) -->
+    <div id="boot-sequence" class="boot-sequence">
+      <div class="boot-terminal">
+        <div id="boot-output" class="boot-output"></div>
+      </div>
+      <!-- Network/Globe Animation -->
+      <canvas id="network-canvas" class="network-canvas"></canvas>
+    </div>
+  </div>
+
+  <!-- Status Bar -->
+  <header class="status-bar">
+    <div class="status-bar__left">
+      <span class="status-bar__item status-bar__item--accent">
+        <span id="user-display">Iyyan Portfolio</span>
+      </span>
+      <span class="status-bar__item">
+        UPTIME: <span id="uptime-display">00:00:00</span>
+      </span>
+      <span class="status-bar__item">
+        IP: <span id="visitor-ip" class="text-secondary">Detecting...</span>
+      </span>
+      <span class="status-bar__item">
+        STATUS: <span class="text-primary">ONLINE</span>
+      </span>
+    </div>
+    <nav class="status-bar__right">
+      <ul class="status-bar__nav">
+        <li><a href="#hero">./home</a></li>
+        <li><a href="#about">./about</a></li>
+        <li><a href="#experience">./careers</a></li>
+        <li><a href="#work">./projects</a></li>
+        <li><a href="#contact">./hire-me</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Viewport -->
+  <main class="main-viewport">
+
     <!-- Hero Section -->
-    <section id="hero">
+    <section id="hero" class="section section--hero">
       <div class="container">
-        <p class="font-mono text-primary mb-2 tracking-widest">WELCOME TO MY PORTFOLIO</p>
-        <h1 class="hero-title glitch" data-text="IYYAN ANUGRAH">IYYAN ANUGRAH</h1>
-        <h2 class="hero-subtitle">IT Support Engineer | Cloud Support | Systems & Infrastructure</h2>
-        <p class="hero-text text-muted mt-6" style="max-width: 600px; margin: 2rem auto;">
-          Building resilient Linux infrastructures and securing cloud architectures.
-          <span class="text-primary">Open to Relocation.</span>
+        <p class="hero__prompt">
+          <span>root@portfolio:~$</span> whoami
         </p>
-        <a href="#contact" class="btn mt-8">Initialize Contact</a>
+        <h1 class="hero__name">IYYAN ANUGRAH<span class="cursor"></span></h1>
+        <h2 class="hero__role">IT Support / Systems Support | NOC Engineer (L1) | SOC Analyst (L1)</h2>
+        <p class="hero__bio">
+          Building resilient Linux infrastructures and securing cloud architectures.
+          <span class="highlight">Indonesia | Open to Relocation & Remote.</span>
+        </p>
+        <div class="hero__actions">
+          <a href="#contact" class="btn">$ ssh connect@iyyan</a>
+          <a href="https://drive.google.com/file/d/19pJ-RCgNKEkurY9FckZbYmluvmXyrTBR/view?usp=sharing" target="_blank"
+            rel="noopener noreferrer" class="btn btn--secondary">📄 Download CV</a>
+        </div>
       </div>
     </section>
 
     <!-- About Section -->
-    <section id="about">
+    <section id="about" class="section">
       <div class="container">
-        <h2 class="section-title">01 // PROFILE</h2>
+        <div class="section__header">
+          <span class="section__label">// 01</span>
+          <h2 class="section__title">cat profile.txt</h2>
+        </div>
 
-        <div class="card about-card">
-          <div class="about-grid">
-            <div class="about-text">
-              <p class="text-lg">
-                Dedicated IT Support & Systems Engineer with strong practical experience across <span
-                  class="text-primary">server administration</span>, Linux environments, and <span
-                  class="text-secondary">virtualization</span>.
-              </p>
-              <br>
-              <p class="text-muted">
-                I actively build and maintain IT infrastructures, automate tasks, and manage secure cloud-based
-                architectures using Cloudflare and Docker. My goal is to step into advanced Cloud/DevOps roles in
-                Australia or remote.
-              </p><br>
-
-              <h3 class="mt-8 mb-4 font-mono text-sm text-primary">CORE MODULES</h3>
-              <ul class="skills-list font-mono text-sm">
-                <li>Linux (Ubuntu/Debian)</li>
-                <li>Docker & Containers</li>
-                <li>Cloudflare Zero Trust</li>
-                <li>Grafana Monitoring</li>
-                <li>Python & Bash Scripting</li>
-                <li>VMware Virtualization</li>
-              </ul>
+        <div class="terminal-window">
+          <div class="terminal-window__header">
+            <div class="terminal-window__dots">
+              <span class="terminal-window__dot terminal-window__dot--red"></span>
+              <span class="terminal-window__dot terminal-window__dot--yellow"></span>
+              <span class="terminal-window__dot terminal-window__dot--green"></span>
             </div>
+            <span class="terminal-window__title">profile.txt — bash</span>
+          </div>
+          <div class="terminal-window__body">
+            <h3>Profile Summary</h3><br>
+            <p class="mb-3">
+              <strong>IT Support & Systems Engineer</strong> with hands-on experience supporting users and managing
+              Linux servers,
+              virtualized environments, and monitoring stacks. Skilled in infrastructure operations, basic cloud
+              security, and automation to ensure system reliability and uptime. Actively expanding capabilities in cloud
+              and DevOps through production environments and a self-hosted home lab.
+            </p>
 
-            <div class="about-stats font-mono">
-              <!-- Decorative Stats -->
-              <div style="border: 1px solid var(--primary); padding: 1.5rem; margin-bottom: 1rem;">
-                <h4 class="text-primary">UPTIME</h4>
-                <p class="text-2xl">99.9%</p>
+            <div class="section__header mt-4">
+              <span class="section__label">key_skills[]</span>
+            </div>
+            <div class="skills-grid mt-2">
+              <div class="skill-item">
+                <span class="skill-item__icon">🐧</span>
+                <span>Linux</span>
               </div>
-              <div style="border: 1px solid var(--secondary); padding: 1.5rem;">
-                <h4 class="text-secondary">LOCATION</h4>
-                <p class="text-2xl">INDONESIA</p>
+              <div class="skill-item">
+                <span class="skill-item__icon">🪟</span>
+                <span>Windows</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-item__icon">🐳</span>
+                <span>Docker</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-item__icon">🖥️</span>
+                <span>Proxmox</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-item__icon">☁️</span>
+                <span>Cloudflare</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-item__icon">🌐</span>
+                <span>GCP</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-item__icon">📊</span>
+                <span>Grafana</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-item__icon">🔥</span>
+                <span>Prometheus</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-item__icon">📈</span>
+                <span>Zabbix</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-item__icon">🔒</span>
+                <span>Wazuh SIEM</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-item__icon">🐍</span>
+                <span>Python</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-item__icon">💻</span>
+                <span>Bash</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-item__icon">⚡</span>
+                <span>PowerShell</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-item__icon">🌍</span>
+                <span>TCP/IP</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-item__icon">�</span>
+                <span>NMAP/Burp Suite</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-item__icon">🛡️</span>
+                <span>Tailscale</span>
               </div>
             </div>
           </div>
@@ -89,133 +199,173 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience">
+    <section id="experience" class="section">
       <div class="container">
-        <h2 class="section-title">02 // EXPERIENCE</h2>
+        <div class="section__header">
+          <span class="section__label">// 02</span>
+          <h2 class="section__title">journalctl -u career</h2>
+        </div>
 
-        <div class="jobs-container">
+        <div class="log-list">
           <!-- Job 1 -->
-          <div class="job-card card">
-            <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
-              <h3 class="job-role text-xl">Junior IT Support <span class="text-primary">@ ONEderland Enterprise</span>
-              </h3>
-              <span class="font-mono text-accent">2023 – Present</span>
+          <article class="log-entry">
+            <div class="log-entry__time">
+              Aug 2023 - Feb 2025<br>
+              <span class="text-muted">[COMPLETED]</span>
             </div>
-            <ul class="job-desc mt-6 text-muted spacing-y-2">
-              <li>Maintain and support company IT systems, servers, networking devices, and internal applications.
-              </li>
-              <li>Implemented <strong>Snipe-IT</strong> for asset management.</li>
-              <li>Built internal online storage accessible via <strong>Cloudflare Tunnels</strong>.</li>
-              <li>Set up helpdesk ticketing (UVdesk) and configured firewall rules.</li>
-              <li>Established <strong>Wazuh SIEM</strong> monitoring for all company Server.</li>
-            </ul>
-          </div>
+            <div class="log-entry__content">
+              <h3>Junior IT Support <span>@ ONEderland Enterprise, Bali</span></h3>
+              <ul class="log-entry__list">
+                <li>Implemented <strong class="text-primary">Snipe-IT</strong> for centralized asset management.</li>
+                <li>Deployed <strong class="text-secondary">Proxmox</strong> for multiple VMs and containers.</li>
+                <li>Configured <strong class="text-primary">Cloudflare DNS</strong> and security rules.</li>
+                <li>Built leaveform systems with <strong class="text-secondary">Apps Script</strong>.</li>
+                <li>Automated backup tasks using Python and Bash.</li>
+                <li>Supported 10+ VMs and services, reduced incident response time.</li>
+              </ul>
+            </div>
+          </article>
 
           <!-- Job 2 -->
-          <div class="job-card card">
-            <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
-              <h3 class="job-role text-xl">IT Support <span class="text-primary">@ Asian Games Committee</span></h3>
-              <span class="font-mono text-accent">2018</span>
+          <article class="log-entry">
+            <div class="log-entry__time">
+              2018<br>
+              <span class="text-muted">[COMPLETED]</span>
             </div>
-            <ul class="job-desc mt-6 text-muted spacing-y-2">
-              <li>Monitored event-critical IT infrastructure during live operations.</li>
-              <li>Resolved real-time system, network, and device issues.</li>
-              <li>Assisted SOC team with threat monitoring.</li>
-            </ul>
-          </div>
+            <div class="log-entry__content">
+              <h3>IT Support <span>@ Asian Games Committee (Rudex Technology), Jakarta</span></h3>
+              <ul class="log-entry__list">
+                <li>Monitored event-critical IT infrastructure during live operations.</li>
+                <li>Resolved real-time network and device issues for hundreds of staff.</li>
+                <li>Assisted SOC teams with incident observation and reporting.</li>
+                <li>Supported high-risk live event environment requiring real-time stability.</li>
+              </ul>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
     <!-- Work/Projects Section -->
-    <section id="work">
+    <section id="work" class="section">
       <div class="container">
-        <h2 class="section-title">03 // PERSONAL DEPLOYMENTS</h2>
-
-        <div class="projects-grid">
-          <!-- Project 1 -->
-          <div class="project-card card">
-            <span class="font-mono text-primary text-xs mb-2 display-block">INFRASTRUCTURE</span>
-            <h3 class="project-title text-2xl mb-4">Home Lab Stack</h3>
-            <p class="project-desc text-muted mb-6">
-              Self-hosted environment with Linux servers, Docker, VMs, and full monitoring. Simulates enterprise remote
-              access.
-            </p>
-            <div class="project-tech font-mono text-xs text-accent" style="display: flex; gap: 1rem;">
-              <span>LINUX</span>
-              <span>DOCKER</span>
-              <span>VPS</span>
-            </div>
-          </div>
-
-          <!-- Project 2 -->
-          <div class="project-card card">
-            <span class="font-mono text-primary text-xs mb-2 display-block">SECURITY</span>
-            <h3 class="project-title text-2xl mb-4">Zero Trust Gateway</h3>
-            <p class="project-desc text-muted mb-6">
-              Secured web apps via Cloudflare Tunnels. Implemented identity-aware access policies without VPNs.
-            </p>
-            <div class="project-tech font-mono text-xs text-accent" style="display: flex; gap: 1rem;">
-              <span>CLOUDFLARE</span>
-              <span>ZERO TRUST</span>
-            </div>
-          </div>
-
-          <!-- Project 3 -->
-          <div class="project-card card">
-            <span class="font-mono text-primary text-xs mb-2 display-block">AUTOMATION</span>
-            <h3 class="project-title text-2xl mb-4">Auto-Ops Scripts</h3>
-            <p class="project-desc text-muted mb-6">
-              Bash/Python scripts for automated SCP backups and ticketing system SMTP integration.
-            </p>
-            <div class="project-tech font-mono text-xs text-accent" style="display: flex; gap: 1rem;">
-              <span>BASH</span>
-              <span>PYTHON</span>
-              <span>SMTP</span>
-            </div>
-          </div>
+        <div class="section__header">
+          <span class="section__label">// 03</span>
+          <h2 class="section__title">ps aux --projects</h2>
         </div>
 
-        <div class="mt-12 text-center" style="margin-top: 4rem;">
-          <h3 class="font-mono text-primary text-sm mb-6 tracking-widest">// PROJECTS (PREVIEW)</h3>
-          <div class="gallery-grid">
-            <div class="gallery-card">
-              <div class="gallery-placeholder">PROJECT ALPHA<br><span class="text-xs opacity-50">Coming Soon</span>
+        <div class="process-grid">
+          <!-- Project 1 -->
+          <article class="process-card">
+            <div class="process-card__header">
+              <span class="process-card__pid">PID: 1001</span>
+              <span class="process-card__status">ACTIVE</span>
+            </div>
+            <div class="process-card__body">
+              <h3 class="process-card__title">Home Lab Stack</h3>
+              <p class="process-card__desc">
+                Self-hosted environment with Linux servers, Docker, VMs, and full monitoring. Simulates enterprise
+                remote access.
+              </p>
+              <div class="process-card__tags">
+                <span class="tag">LINUX</span>
+                <span class="tag">DOCKER</span>
+                <span class="tag">VPS</span>
               </div>
             </div>
-            <div class="gallery-card">
-              <div class="gallery-placeholder">DASHBOARD UI<br><span class="text-xs opacity-50">Coming Soon</span></div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="process-card">
+            <div class="process-card__header">
+              <span class="process-card__pid">PID: 1042</span>
+              <span class="process-card__status">ACTIVE</span>
             </div>
-            <div class="gallery-card">
-              <div class="gallery-placeholder">NETWORK MAP<br><span class="text-xs opacity-50">Coming Soon</span></div>
+            <div class="process-card__body">
+              <h3 class="process-card__title">Zero Trust Gateway</h3>
+              <p class="process-card__desc">
+                Secured web apps via Cloudflare Tunnels. Implemented identity-aware access policies without VPNs.
+              </p>
+              <div class="process-card__tags">
+                <span class="tag">CLOUDFLARE</span>
+                <span class="tag">ZERO TRUST</span>
+              </div>
             </div>
-            <div class="gallery-card">
-              <div class="gallery-placeholder">DATA VIZ<br><span class="text-xs opacity-50">Coming Soon</span></div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="process-card">
+            <div class="process-card__header">
+              <span class="process-card__pid">PID: 2048</span>
+              <span class="process-card__status">ACTIVE</span>
             </div>
-          </div>
+            <div class="process-card__body">
+              <h3 class="process-card__title">Auto-Ops Scripts</h3>
+              <p class="process-card__desc">
+                Bash/Python scripts for automated SCP backups and ticketing system SMTP integration.
+              </p>
+              <div class="process-card__tags">
+                <span class="tag">BASH</span>
+                <span class="tag">PYTHON</span>
+                <span class="tag">SMTP</span>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="text-center" style="min-height: 40vh; padding: 4rem 0;">
-      <div class="container" style="max-width: 700px;">
-        <h2 class="section-title">04 // CONTACT</h2>
-        <h2 class="contact-title" style="font-size: clamp(3rem, 6vw, 5rem); margin-bottom: 2rem;">Get In Touch</h2>
-        <p class="text-muted text-lg mb-8">
-          Searching for roles in Cloud Support or System Administration. <br>
-          Available for remote work or relocation.
-        </p>
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <a href="mailto:anugrahiyyan@gmail.com" class="btn">Initialize Handshake</a>
-          <a href="https://wa.me/6285155114025" target="_blank" class="btn btn-whatsapp">Initialize Chat</a>
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__label">// 04</span>
+          <h2 class="section__title">nc -l connect</h2>
+        </div>
+
+        <div class="contact-content">
+          <p>
+            Searching for roles in IT Support, NOC/SOC L1, or System Administration.<br>
+            Available for remote work or relocation. Open to visa sponsorship.
+          </p>
+          <div class="contact-actions">
+            <a href="mailto:anugrahiyyan@gmail.com" target="_blank" rel="noopener noreferrer" class="btn">$ mail -s
+              "Hello"</a>
+            <a href="https://wa.me/6285155114025" target="_blank" rel="noopener noreferrer" class="btn btn--secondary">$
+              chat --whatsapp</a>
+            <a href="https://drive.google.com/file/d/19pJ-RCgNKEkurY9FckZbYmluvmXyrTBR/view?usp=sharing" target="_blank"
+              rel="noopener noreferrer" class="btn btn--accent">📄 Download CV</a>
+          </div>
+
+          <!-- Social Links -->
+          <div class="social-links mt-4">
+            <a href="https://www.linkedin.com/in/iyyan-anugrah/" target="_blank" rel="noopener noreferrer"
+              class="social-link" title="LinkedIn">
+              <span>💼</span> LinkedIn
+            </a>
+            <a href="https://github.com/anugrahiyyan" target="_blank" rel="noopener noreferrer" class="social-link"
+              title="GitHub">
+              <span>🐙</span> GitHub
+            </a>
+            <a href="https://www.instagram.com/gbtr.x/" target="_blank" rel="noopener noreferrer" class="social-link"
+              title="Instagram">
+              <span>📷</span> Instagram
+            </a>
+            <a href="https://status.pxcakrahive.my.id/" target="_blank" rel="noopener noreferrer" class="social-link"
+              title="HomeLab Status">
+              <span>🖥️</span> HomeLab Status
+            </a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer style="padding: 1rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.05);">
-    <p class="font-mono text-xs text-muted">DESIGNED BY IYYAN ANUGRAH</p>
+  <!-- Footer -->
+  <footer class="footer">
+    <p class="footer__text">@ 2026 All rights reserved by <a style="color: var(--accent-primary);"
+        href="https://www.linkedin.com/in/iyyan-anugrah/" target="_blank" rel="noopener noreferrer">Iyyan Anugrah</a>.
+    </p>
   </footer>
 
   <!-- Entry Point -->
