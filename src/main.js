@@ -22,12 +22,14 @@ const CONFIG = {
         { text: '> [OK] Connection established: 172.16.0.100', type: 'success', delay: 80 },
         { text: '> Scanning network topology...', type: 'info', delay: 200 },
         { text: '> [OK] 24 nodes discovered', type: 'success', delay: 150 },
-        { text: '> Loading user profile...', type: 'info', delay: 180 },
+        { text: '> ....', type: 'success', delay: 100 },
+        { text: '> ....', type: 'success', delay: 100 },
+        { text: '\n> Loading user profile...', type: 'info', delay: 180 },
         { text: '> [OK] Profile: IYYAN ANUGRAH', type: 'success', delay: 100 },
         { text: '> [OK] Access level: ADMINISTRATOR', type: 'warning', delay: 120 },
         { text: '> Rendering portfolio interface...', type: 'info', delay: 200 },
         { text: '> [OK] All systems operational', type: 'success', delay: 150 },
-        { text: '\n> Welcome, visitor.', type: 'success', delay: 300 },
+        { text: '\n> Welcome, VISITOR.', type: 'success', delay: 300 },
     ]
 };
 
@@ -451,7 +453,7 @@ const initSectionTitleTypewriters = () => {
 // =========================================
 const initScrollScrambleEffects = () => {
     const scrambleableElements = [
-        // ...document.querySelectorAll('.terminal-window__body p'),
+        ...document.querySelectorAll('.terminal-window__body p'),
         ...document.querySelectorAll('.log-entry__content h3'),
         ...document.querySelectorAll('.log-entry__list li'),
         ...document.querySelectorAll('.process-card__title'),
@@ -469,7 +471,7 @@ const initScrollScrambleEffects = () => {
                 entry.target.dataset.scrambled = 'true';
                 const originalText = entry.target.textContent;
                 const scrambler = new TextScrambler(entry.target);
-                scrambler.setText(originalText, 2, 1); // Faster: 2 frames per char, 1 initial frame
+                scrambler.setText(originalText, 0.5, 0.5);
                 observer.unobserve(entry.target);
             }
         });
@@ -479,10 +481,41 @@ const initScrollScrambleEffects = () => {
 };
 
 // =========================================
-// Contact Links Looping Scramble
+// Contact Links Sequential Scramble
 // =========================================
 const initContactLinksScramble = () => {
     const contactLinks = document.querySelectorAll('.contact-actions a');
+    if (contactLinks.length === 0) return;
+
+    // Store original text and create scramblers for each link
+    const items = Array.from(contactLinks).map(link => ({
+        element: link,
+        originalText: link.textContent.trim(),
+        scrambler: new TextScrambler(link)
+    }));
+
+    let currentIndex = 0;
+
+    const scrambleNext = async () => {
+        const item = items[currentIndex];
+        await item.scrambler.setText(item.originalText, 3, 2);
+
+        // Move to next button
+        currentIndex = (currentIndex + 1) % items.length;
+
+        // Wait before scrambling the next one
+        setTimeout(scrambleNext, 3000);
+    };
+
+    // Start after initial delay
+    setTimeout(scrambleNext, 5000);
+};
+
+// =========================================
+// Hero Actions Looping Scramble
+// =========================================
+const initHeroActionsScramble = () => {
+    const contactLinks = document.querySelectorAll('.hero__actions a');
 
     contactLinks.forEach(link => {
         const originalText = link.textContent.trim();
@@ -490,11 +523,11 @@ const initContactLinksScramble = () => {
 
         const scrambleLoop = async () => {
             await scrambler.setText(originalText, 4, 2);
-            setTimeout(scrambleLoop, 12000);
+            setTimeout(scrambleLoop, 9000);
         };
 
         // Start after a delay
-        setTimeout(scrambleLoop, 9000);
+        setTimeout(scrambleLoop, 6000);
     });
 };
 
@@ -508,9 +541,53 @@ const initMainSite = () => {
     initSectionTitleTypewriters();
     initScrollScrambleEffects();
     initContactLinksScramble();
+    initHeroActionsScramble();
     initNavHighlight();
     initSmoothScroll();
     initScrollAnimations();
+    initMobileNav();
+};
+
+// --- Mobile Nav Toggle ---
+const initMobileNav = () => {
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (!navToggle || !navMenu) return;
+
+    navToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navMenu.classList.toggle('open');
+        // Toggle icon between bars and X
+        const icon = navToggle.querySelector('i');
+        if (navMenu.classList.contains('open')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-xmark');
+        } else {
+            icon.classList.remove('fa-xmark');
+            icon.classList.add('fa-bars');
+        }
+    });
+
+    // Close menu when clicking a link
+    navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('open');
+            const icon = navToggle.querySelector('i');
+            icon.classList.remove('fa-xmark');
+            icon.classList.add('fa-bars');
+        });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+            navMenu.classList.remove('open');
+            const icon = navToggle.querySelector('i');
+            icon.classList.remove('fa-xmark');
+            icon.classList.add('fa-bars');
+        }
+    });
 };
 
 // --- Uptime Counter ---

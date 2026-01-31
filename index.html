@@ -8,6 +8,10 @@
   <meta name="description"
     content="Portfolio of Iyyan Anugrah - IT Support Engineer specializing in Linux, Cloudflare, and Systems Infrastructure." />
   <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <!-- Devicon for Tech Stack Logos -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+  <!-- FontAwesome for Social Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 
 <body>
@@ -22,14 +26,14 @@
         <div class="monitor-screen">
           <div class="scanlines"></div>
           <div class="intro-content">
-            <p class="intro-label">PERMISSION ACCESS VIEW</p>
-            <p class="intro-text">
-              YOU WILL SEE THE PORTFOLIO OF<br>
+            <p class="intro-label">PERMISSON REQUIRED</p>
+            <p class="intro-text">I NEED TO CHECK YOU'RE NOT A ROBOT<br><br>
+              YOU WILL SEE PORTFOLIO OF<br>
               <span id="scramble-name" class="intro-name">IYYAN ANUGRAH</span>
             </p>
             <button id="enter-btn" class="intro-btn">
               <span class="intro-btn__text">[ENTER]</span>
-              <span class="intro-btn__hint">Press Enter or Click</span>
+              <span class="intro-btn__hint">Press Enter or Click to Continue</span>
             </button>
           </div>
         </div>
@@ -64,7 +68,10 @@
       </span>
     </div>
     <nav class="status-bar__right">
-      <ul class="status-bar__nav">
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <ul class="status-bar__nav" id="nav-menu">
         <li><a href="#hero">./home</a></li>
         <li><a href="#about">./about</a></li>
         <li><a href="#experience">./careers</a></li>
@@ -84,10 +91,10 @@
           <span>root@portfolio:~$</span> whoami
         </p>
         <h1 class="hero__name">IYYAN ANUGRAH<span class="cursor"></span></h1>
-        <h2 class="hero__role">IT Support / Systems Support | NOC Engineer (L1) | SOC Analyst (L1)</h2>
+        <h2 class="hero__role">IT Support (L3) | NOC Engineer (L1) | SOC Analyst (L1)</h2>
         <p class="hero__bio">
           Building resilient Linux infrastructures and securing cloud architectures.
-          <span class="highlight">Indonesia | Open to Relocation & Remote.</span>
+          <span class="highlight">Bali, Indonesia | Open to Relocation & Remote.</span>
         </p>
         <div class="hero__actions">
           <a href="#contact" class="btn">$ ssh connect@iyyan</a>
@@ -102,7 +109,7 @@
       <div class="container">
         <div class="section__header">
           <span class="section__label">// 01</span>
-          <h2 class="section__title">cat profile.txt</h2>
+          <h2 class="section__title">cat profile.txt<span class="cursor"></span></h2>
         </div>
 
         <div class="terminal-window">
@@ -129,68 +136,76 @@
             </div>
             <div class="skills-grid mt-2">
               <div class="skill-item">
-                <span class="skill-item__icon">🐧</span>
+                <i class="devicon-linux-plain skill-item__icon"></i>
                 <span>Linux</span>
               </div>
               <div class="skill-item">
-                <span class="skill-item__icon">🪟</span>
+                <i class="devicon-windows11-original skill-item__icon"></i>
                 <span>Windows</span>
               </div>
               <div class="skill-item">
-                <span class="skill-item__icon">🐳</span>
+                <i class="devicon-docker-plain skill-item__icon"></i>
                 <span>Docker</span>
               </div>
               <div class="skill-item">
-                <span class="skill-item__icon">🖥️</span>
+                <i class="fa-solid fa-server skill-item__icon"></i>
                 <span>Proxmox</span>
               </div>
               <div class="skill-item">
-                <span class="skill-item__icon">☁️</span>
+                <i class="devicon-cloudflare-plain skill-item__icon"></i>
                 <span>Cloudflare</span>
               </div>
               <div class="skill-item">
-                <span class="skill-item__icon">🌐</span>
+                <i class="devicon-googlecloud-plain skill-item__icon"></i>
                 <span>GCP</span>
               </div>
               <div class="skill-item">
-                <span class="skill-item__icon">📊</span>
+                <i class="devicon-grafana-plain skill-item__icon"></i>
                 <span>Grafana</span>
               </div>
               <div class="skill-item">
-                <span class="skill-item__icon">🔥</span>
+                <i class="devicon-prometheus-original skill-item__icon"></i>
                 <span>Prometheus</span>
               </div>
               <div class="skill-item">
-                <span class="skill-item__icon">📈</span>
+                <i class="fa-solid fa-chart-line skill-item__icon"></i>
                 <span>Zabbix</span>
               </div>
               <div class="skill-item">
-                <span class="skill-item__icon">🔒</span>
+                <i class="fa-solid fa-shield-halved skill-item__icon"></i>
                 <span>Wazuh SIEM</span>
               </div>
               <div class="skill-item">
-                <span class="skill-item__icon">🐍</span>
+                <i class="devicon-python-plain skill-item__icon"></i>
                 <span>Python</span>
               </div>
               <div class="skill-item">
-                <span class="skill-item__icon">💻</span>
+                <i class="devicon-bash-plain skill-item__icon"></i>
                 <span>Bash</span>
               </div>
               <div class="skill-item">
-                <span class="skill-item__icon">⚡</span>
+                <i class="devicon-powershell-plain skill-item__icon"></i>
                 <span>PowerShell</span>
               </div>
               <div class="skill-item">
-                <span class="skill-item__icon">🌍</span>
+                <i class="fa-solid fa-network-wired skill-item__icon"></i>
                 <span>TCP/IP</span>
               </div>
               <div class="skill-item">
-                <span class="skill-item__icon">�</span>
-                <span>NMAP/Burp Suite</span>
+                <i class="fa-solid fa-lock skill-item__icon"></i>
+                <span>Tailscale</span>
               </div>
               <div class="skill-item">
-                <span class="skill-item__icon">🛡️</span>
-                <span>Tailscale</span>
+                <i class="fa-solid fa-crosshairs skill-item__icon"></i>
+                <span>NMAP</span>
+              </div>
+              <div class="skill-item">
+                <i class="fa-solid fa-spider skill-item__icon"></i>
+                <span>Burp Suite</span>
+              </div>
+              <div class="skill-item">
+                <i class="fa-solid fa-water skill-item__icon"></i>
+                <span>Wireshark</span>
               </div>
             </div>
           </div>
@@ -203,15 +218,15 @@
       <div class="container">
         <div class="section__header">
           <span class="section__label">// 02</span>
-          <h2 class="section__title">journalctl -u career</h2>
+          <h2 class="section__title">journalctl -u career<span class="cursor"></span></h2>
         </div>
 
         <div class="log-list">
           <!-- Job 1 -->
           <article class="log-entry">
             <div class="log-entry__time">
-              Aug 2023 - Feb 2025<br>
-              <span class="text-muted">[COMPLETED]</span>
+              Aug 2023 - Present<br>
+              <span class="text-primary">[RUNNING]</span>
             </div>
             <div class="log-entry__content">
               <h3>Junior IT Support <span>@ ONEderland Enterprise, Bali</span></h3>
@@ -251,63 +266,116 @@
       <div class="container">
         <div class="section__header">
           <span class="section__label">// 03</span>
-          <h2 class="section__title">ps aux --projects</h2>
+          <h2 class="section__title">ps aux --projects list<span class="cursor"></span></h2>
         </div>
 
-        <div class="process-grid">
-          <!-- Project 1 -->
-          <article class="process-card">
-            <div class="process-card__header">
-              <span class="process-card__pid">PID: 1001</span>
-              <span class="process-card__status">ACTIVE</span>
-            </div>
-            <div class="process-card__body">
-              <h3 class="process-card__title">Home Lab Stack</h3>
-              <p class="process-card__desc">
-                Self-hosted environment with Linux servers, Docker, VMs, and full monitoring. Simulates enterprise
-                remote access.
-              </p>
-              <div class="process-card__tags">
-                <span class="tag">LINUX</span>
-                <span class="tag">DOCKER</span>
-                <span class="tag">VPS</span>
+        <div class="project-grid">
+          <!-- Project 1: Leaveform System -->
+          <article class="project-card">
+            <div class="project-card__inner">
+              <div class="project-card__front">
+                <div class="project-card__number">01</div>
+                <h3 class="project-card__title">Leaveform System</h3>
+                <p class="project-card__desc">Designed and built a leaveform system for <strong>ONEderland
+                    Enterprise</strong>. Reduced 100% of manual form handling.</p>
+                <span class="project-card__hint"><i class="fa-solid fa-rotate"></i> Hover/Tap to flip</span>
+              </div>
+              <div class="project-card__back">
+                <div class="project-card__tags">
+                  <span class="tag">CF WORKERS</span>
+                  <span class="tag">GCP</span>
+                  <span class="tag">GAS</span>
+                  <span class="tag">CALENDER</span>
+                  <span class="tag">JAVASCRIPT</span>
+                </div>
+                <div class="project-card__links">
+                  <a href="https://leaveform.satuimpianbersama.com/" target="_blank" rel="noopener noreferrer"
+                    class="project-card__link">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                  </a>
+                </div>
               </div>
             </div>
           </article>
 
-          <!-- Project 2 -->
-          <article class="process-card">
-            <div class="process-card__header">
-              <span class="process-card__pid">PID: 1042</span>
-              <span class="process-card__status">ACTIVE</span>
-            </div>
-            <div class="process-card__body">
-              <h3 class="process-card__title">Zero Trust Gateway</h3>
-              <p class="process-card__desc">
-                Secured web apps via Cloudflare Tunnels. Implemented identity-aware access policies without VPNs.
-              </p>
-              <div class="process-card__tags">
-                <span class="tag">CLOUDFLARE</span>
-                <span class="tag">ZERO TRUST</span>
+          <!-- Project 2: Inventory Management -->
+          <article class="project-card">
+            <div class="project-card__inner">
+              <div class="project-card__front">
+                <div class="project-card__number">02</div>
+                <h3 class="project-card__title">Inventory System</h3>
+                <p class="project-card__desc">Enhanced old record system from spreadsheet to web-based for
+                  <strong>ONEderland Enterprise</strong>.
+                </p>
+                <span class="project-card__hint"><i class="fa-solid fa-rotate"></i> Hover/Tap to flip</span>
+              </div>
+              <div class="project-card__back">
+                <div class="project-card__tags">
+                  <span class="tag">LARAVEL</span>
+                  <span class="tag">PHP</span>
+                  <span class="tag">LINUX</span>
+                  <span class="tag">OPEN SOURCE</span>
+                </div>
+                <div class="project-card__links">
+                  <a href="#" class="project-card__link project-card__link--disabled">
+                    <i class="fa-solid fa-lock"></i> Private
+                  </a>
+                </div>
               </div>
             </div>
           </article>
 
-          <!-- Project 3 -->
-          <article class="process-card">
-            <div class="process-card__header">
-              <span class="process-card__pid">PID: 2048</span>
-              <span class="process-card__status">ACTIVE</span>
+          <!-- Project 3: Homelabs -->
+          <article class="project-card">
+            <div class="project-card__inner">
+              <div class="project-card__front">
+                <div class="project-card__number">03</div>
+                <h3 class="project-card__title">HOMELABS</h3>
+                <p class="project-card__desc">Self-hosted environment with Docker, VMs, monitoring stack, and pentesting
+                  labs.</p>
+                <span class="project-card__hint"><i class="fa-solid fa-rotate"></i> Hover/Tap to flip</span>
+              </div>
+              <div class="project-card__back">
+                <div class="project-card__tags">
+                  <span class="tag">DOCKER</span>
+                  <span class="tag">LINUX</span>
+                  <span class="tag">NODE.JS</span>
+                  <span class="tag">PM2</span>
+                  <span class="tag">PENTESTING LABS</span>
+                  <span class="tag">CLOUDSERVER</span>
+                  <span class="tag">HOSTING</span>
+                </div>
+                <div class="project-card__links">
+                  <a href="https://status.pxcakrahive.my.id/" target="_blank" rel="noopener noreferrer"
+                    class="project-card__link">
+                    <i class="fa-solid fa-chart-line"></i> Status Page
+                  </a>
+                </div>
+              </div>
             </div>
-            <div class="process-card__body">
-              <h3 class="process-card__title">Auto-Ops Scripts</h3>
-              <p class="process-card__desc">
-                Bash/Python scripts for automated SCP backups and ticketing system SMTP integration.
-              </p>
-              <div class="process-card__tags">
-                <span class="tag">BASH</span>
-                <span class="tag">PYTHON</span>
-                <span class="tag">SMTP</span>
+          </article>
+
+          <!-- Project 4: Portfolio -->
+          <article class="project-card">
+            <div class="project-card__inner">
+              <div class="project-card__front">
+                <div class="project-card__number">04</div>
+                <h3 class="project-card__title">This Portfolio</h3>
+                <p class="project-card__desc">Responsive portfolio with animations and CRT boot sequence.</p>
+                <span class="project-card__hint"><i class="fa-solid fa-rotate"></i> Hover/Tap to flip</span>
+              </div>
+              <div class="project-card__back">
+                <div class="project-card__tags">
+                  <span class="tag">VITE</span>
+                  <span class="tag">JAVASCRIPT</span>
+                  <span class="tag">CF WORKERS</span>
+                </div>
+                <div class="project-card__links">
+                  <a href="https://github.com/anugrahiyyan/portofolio" target="_blank" rel="noopener noreferrer"
+                    class="project-card__link">
+                    <i class="fa-brands fa-github"></i> Source Code
+                  </a>
+                </div>
               </div>
             </div>
           </article>
@@ -320,12 +388,12 @@
       <div class="container">
         <div class="section__header">
           <span class="section__label">// 04</span>
-          <h2 class="section__title">nc -l connect</h2>
+          <h2 class="section__title">nc -l connect<span class="cursor"></span></h2>
         </div>
 
         <div class="contact-content">
           <p>
-            Searching for roles in IT Support, NOC/SOC L1, or System Administration.<br>
+            Searching for roles in IT Support (L3), NOC/SOC L1, or System Administration.<br>
             Available for remote work or relocation. Open to visa sponsorship.
           </p>
           <div class="contact-actions">
@@ -341,19 +409,19 @@
           <div class="social-links mt-4">
             <a href="https://www.linkedin.com/in/iyyan-anugrah/" target="_blank" rel="noopener noreferrer"
               class="social-link" title="LinkedIn">
-              <span>💼</span> LinkedIn
+              <i class="fa-brands fa-linkedin"></i> LinkedIn
             </a>
             <a href="https://github.com/anugrahiyyan" target="_blank" rel="noopener noreferrer" class="social-link"
               title="GitHub">
-              <span>🐙</span> GitHub
+              <i class="fa-brands fa-github"></i> GitHub
             </a>
             <a href="https://www.instagram.com/gbtr.x/" target="_blank" rel="noopener noreferrer" class="social-link"
               title="Instagram">
-              <span>📷</span> Instagram
+              <i class="fa-brands fa-instagram"></i> Instagram
             </a>
             <a href="https://status.pxcakrahive.my.id/" target="_blank" rel="noopener noreferrer" class="social-link"
               title="HomeLab Status">
-              <span>🖥️</span> HomeLab Status
+              <i class="fa-solid fa-server"></i> HomeLab Status
             </a>
           </div>
         </div>
@@ -363,8 +431,8 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <p class="footer__text">@ 2026 All rights reserved by <a style="color: var(--accent-primary);"
-        href="https://www.linkedin.com/in/iyyan-anugrah/" target="_blank" rel="noopener noreferrer">Iyyan Anugrah</a>.
+    <p class="footer__text">&copy; 2026 All rights reserved by <a style="color: var(--accent-primary);"
+        href="https://www.instagram.com/gbtr.x/" target="_blank" rel="noopener noreferrer">Iyyan Anugrah</a>.
     </p>
   </footer>
 
