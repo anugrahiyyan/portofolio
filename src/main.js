@@ -453,7 +453,7 @@ const initSectionTitleTypewriters = () => {
 // =========================================
 const initScrollScrambleEffects = () => {
     const scrambleableElements = [
-        ...document.querySelectorAll('.terminal-window__body p'),
+        // ...document.querySelectorAll('.terminal-window__body p'),
         ...document.querySelectorAll('.log-entry__content h3'),
         ...document.querySelectorAll('.log-entry__list li'),
         ...document.querySelectorAll('.process-card__title'),
